@@ -36,19 +36,15 @@
         margin-bottom: 30px;
       }
 
-      /* Empty space for photo — replace with your own <img> if you like */
+      /* Profile photo */
       .photo {
         width: 140px;
         height: 140px;
         border-radius: 50%;
-        background: #ddd;
-        border: 2px dashed #aaa;
+        object-fit: cover;
+        display: block;
         margin: 0 auto 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 13px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
 
       header h1 {
@@ -151,6 +147,8 @@
          HEADER: photo, name, experiences
          ============================================================ -->
       <header>
+        <img src="Mohamed%20Guessous%20-%204030.JPG" alt="Mohamed Guessous" class="photo" />
+
         <h1>Mohamed Guessous</h1>
         <p>Finance &amp; Data Analytics | McGill MMA Candidate</p>
         <p class="links">
