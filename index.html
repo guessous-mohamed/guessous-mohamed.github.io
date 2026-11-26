@@ -1,243 +1,361 @@
-<!-- Generated with Claude -->
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohamed Guessous | Finance &amp; Data Analytics</title>
+    <meta name="description" content="Mohamed Guessous - McGill MMA candidate combining M&amp;A, portfolio management and data analytics." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet" />
 
     <style>
-      /* ============================================================
-       BASIC STYLES — students can tweak colors/fonts here
-       ============================================================ */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      :root {
+        --navy: #0f2540;
+        --navy-2: #173457;
+        --accent: #b08d57;
+        --ink: #1c2530;
+        --muted: #5b6673;
+        --line: #e3e7ec;
+        --bg: #f6f7f9;
+        --card: #ffffff;
       }
-
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
       body {
-        font-family: Arial, Helvetica, sans-serif;
-        color: #222;
-        background: #f7f7f7;
-        line-height: 1.5;
+        font-family: "Inter", Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
+      a { color: inherit; }
+      .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
+      /* ---------- NAV ---------- */
+      nav {
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(15, 37, 64, 0.96);
+        backdrop-filter: blur(6px);
       }
+      nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+      .brand { color: #fff; font-weight: 600; text-decoration: none; letter-spacing: 0.3px; }
+      .brand span { color: var(--accent); }
+      .nav-links { display: flex; gap: 26px; }
+      .nav-links a { color: #c9d3df; text-decoration: none; font-size: 14px; font-weight: 500; }
+      .nav-links a:hover { color: #fff; }
 
-      /* ---------- HEADER (photo + name + subheading) ---------- */
-      header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      /* Profile photo */
-      .photo {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        display: block;
-        margin: 0 auto 16px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      header h1 {
-        font-size: 28px;
-        margin-bottom: 6px;
-      } /* NAME */
-      header p {
-        font-size: 16px;
-        color: #555;
-      } /* EXPERIENCES */
-
-      /* ---------- TABS ---------- */
-      .tabs {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 24px;
-      }
-
-      .tab-button {
-        padding: 10px 22px;
-        border: 1px solid #ccc;
-        background: #fff;
-        cursor: pointer;
-        font-size: 15px;
-        border-radius: 4px;
-      }
-
-      .tab-button.active {
-        background: #2c3e50;
+      /* ---------- HERO ---------- */
+      .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
         color: #fff;
-        border-color: #2c3e50;
+        padding: 72px 0 80px;
+      }
+      .hero .wrap { display: flex; align-items: center; gap: 48px; }
+      .hero img {
+        width: 190px; height: 190px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+        border: 4px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .eyebrow {
+        color: var(--accent); font-size: 13px; font-weight: 600;
+        letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 10px;
+      }
+      .hero h1 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 46px; line-height: 1.1; margin-bottom: 14px;
+      }
+      .hero p.lead { color: #d5dde7; font-size: 18px; max-width: 600px; margin-bottom: 26px; }
+      .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn {
+        display: inline-block; padding: 11px 20px; border-radius: 6px;
+        font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.15s;
+      }
+      .btn.primary { background: var(--accent); color: #fff; }
+      .btn.primary:hover { background: #9a7a48; }
+      .btn.ghost { border: 1px solid rgba(255, 255, 255, 0.5); color: #fff; }
+      .btn.ghost:hover { background: rgba(255, 255, 255, 0.1); }
+
+      /* ---------- SECTIONS ---------- */
+      section { padding: 72px 0 8px; }
+      .section-title { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+      .section-title h2 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 30px; color: var(--navy);
+      }
+      .section-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+      .about p { font-size: 17px; color: #36414d; max-width: 820px; margin-bottom: 14px; }
+      .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
+      .stat {
+        background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+        padding: 20px; text-align: center;
+      }
+      .stat b { display: block; font-size: 26px; color: var(--navy); font-family: "Source Serif 4", Georgia, serif; }
+      .stat span { font-size: 13px; color: var(--muted); }
+
+      /* ---------- EXPERIENCE ---------- */
+      .timeline { position: relative; padding-left: 28px; }
+      .timeline::before {
+        content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px;
+        width: 2px; background: var(--line);
+      }
+      .job {
+        position: relative; background: var(--card); border: 1px solid var(--line);
+        border-radius: 10px; padding: 22px 24px; margin-bottom: 18px;
+      }
+      .job::before {
+        content: ""; position: absolute; left: -27px; top: 26px;
+        width: 12px; height: 12px; border-radius: 50%;
+        background: var(--accent); border: 3px solid var(--bg);
+      }
+      .job-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+      .job h3 { font-size: 18px; color: var(--navy); }
+      .job .org { font-weight: 500; color: var(--ink); }
+      .job .meta { font-size: 13px; color: var(--muted); text-align: right; }
+      .job ul { margin: 12px 0 0 18px; color: #3d4753; font-size: 15px; }
+      .job li { margin-bottom: 5px; }
+      .tag {
+        display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.4px;
+        text-transform: uppercase; color: var(--accent); background: #f6efe3;
+        padding: 3px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle;
       }
 
-      /* ---------- TAB CONTENT ---------- */
-      .tab-content {
-        display: none;
-      }
-      .tab-content.active {
-        display: block;
-      }
-
-      .panel {
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 6px;
-        padding: 24px;
-      }
-
-      /* ---------- PROJECT CARDS (2 x 2 grid) ---------- */
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-
+      /* ---------- PROJECTS ---------- */
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
       .card {
-        border: 1px solid #eee;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #fff;
+        background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+        padding: 22px; display: flex; flex-direction: column;
+        transition: transform 0.15s, box-shadow 0.15s;
       }
+      .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15, 37, 64, 0.08); }
+      .card .kicker { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+      .card h3 { font-size: 17px; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+      .card p { font-size: 14.5px; color: #46515d; flex: 1; }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+      .chip { font-size: 12px; background: #eef1f5; color: #3b4652; padding: 3px 9px; border-radius: 20px; }
 
-      /* Empty space for project photo */
-      .card-photo {
-        height: 120px;
-        background: #ddd;
-        border-bottom: 1px dashed #aaa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #888;
-        font-size: 12px;
-      }
+      /* ---------- EDUCATION + SKILLS ---------- */
+      .two-col { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
+      .panel { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+      .edu { margin-bottom: 18px; }
+      .edu:last-child { margin-bottom: 0; }
+      .edu h3 { font-size: 16px; color: var(--navy); }
+      .edu p { font-size: 14px; color: var(--muted); }
+      .skill-group { margin-bottom: 16px; }
+      .skill-group:last-child { margin-bottom: 0; }
+      .skill-group h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
 
-      .card-text {
-        padding: 14px;
-      }
-      .card-text h3 {
-        font-size: 16px;
-        margin-bottom: 6px;
-      }
-      .card-text p {
-        font-size: 14px;
-        color: #555;
-      }
+      /* ---------- FOOTER ---------- */
+      footer { background: var(--navy); color: #c9d3df; margin-top: 72px; padding: 48px 0; text-align: center; }
+      footer h2 { font-family: "Source Serif 4", Georgia, serif; color: #fff; font-size: 28px; margin-bottom: 10px; }
+      footer p { margin-bottom: 22px; }
+      footer .btns { justify-content: center; }
+      footer small { display: block; margin-top: 30px; font-size: 12px; color: #8597ab; }
 
-      /* ---------- MOBILE: stack cards vertically ---------- */
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 860px) {
+        .cards { grid-template-columns: 1fr 1fr; }
+        .two-col { grid-template-columns: 1fr; }
+        .stats { grid-template-columns: 1fr; }
+      }
       @media (max-width: 640px) {
-        .cards {
-          grid-template-columns: 1fr;
-        }
+        .nav-links { display: none; }
+        .hero { padding: 48px 0 56px; }
+        .hero .wrap { flex-direction: column; text-align: center; gap: 26px; }
+        .hero h1 { font-size: 36px; }
+        .btns { justify-content: center; }
+        .cards { grid-template-columns: 1fr; }
+        .job .meta { text-align: left; }
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <!-- ============================================================
-         HEADER: photo, name, experiences
-         ============================================================ -->
-      <header>
-        <img src="https://avatars.githubusercontent.com/u/318315298?s=400&amp;v=4" alt="Mohamed Guessous" class="photo" />
-
-        <h1>Mohamed Guessous</h1>
-        <p>Finance &amp; Data Analytics | McGill MMA Candidate</p>
-        <p class="links">
-  <a href="https://www.linkedin.com/in/mohamed-guessous-6222aa2b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  ·
-  <a href="https://github.com/guessous-mohamed" target="_blank" rel="noopener noreferrer">GitHub</a>
-</p>
-      </header>
-
-      <!-- ============================================================
-         TABS
-         ============================================================ -->
-      <div class="tabs">
-        <button class="tab-button active" onclick="showTab('about')">
-          About Me
-        </button>
-        <button class="tab-button" onclick="showTab('projects')">
-          Projects
-        </button>
+    <nav>
+      <div class="wrap">
+        <a class="brand" href="#top">Mohamed <span>Guessous</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
+    </nav>
 
-      <!-- ---------- TAB 1: ABOUT ME ---------- -->
-      <div id="about" class="tab-content active">
-        <div class="panel">
-          <p>
-            I'm a Master of Management in Analytics candidate at McGill (Desautels), building on a
-            BA Joint Honours in Economics &amp; Finance. My background spans M&amp;A advisory at
-            BMCE Capital, financial services consulting at Forvis Mazars, and portfolio management
-            at the McGill Applied Investments Fund. I'm now combining that finance foundation with
-            data analytics to support decisions in capital markets and investment banking.
+    <!-- ---------- HERO ---------- -->
+    <header class="hero" id="top">
+      <div class="wrap">
+        <img src="https://avatars.githubusercontent.com/u/318315298?s=400&amp;v=4" alt="Mohamed Guessous" />
+        <div>
+          <div class="eyebrow">Finance &amp; Data Analytics</div>
+          <h1>Mohamed Guessous</h1>
+          <p class="lead">
+            McGill MMA candidate combining M&amp;A, portfolio management and banking
+            experience with data analytics, to support better decisions in capital markets.
           </p>
+          <div class="btns">
+            <a class="btn primary" href="https://www.linkedin.com/in/mohamed-guessous-6222aa2b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn ghost" href="https://github.com/guessous-mohamed" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn ghost" href="mailto:mohamed.guessous@mail.mcgill.ca">Email me</a>
+          </div>
         </div>
       </div>
+    </header>
 
-      <!-- ---------- TAB 2: PROJECTS ---------- -->
-      <div id="projects" class="tab-content">
+    <!-- ---------- ABOUT ---------- -->
+    <section id="about" class="about">
+      <div class="wrap">
+        <div class="section-title"><h2>About</h2></div>
+        <p>
+          I'm a Master of Management in Analytics candidate at McGill's Desautels Faculty of Management,
+          building on a BA Joint Honours in Economics &amp; Finance. My background spans M&amp;A advisory
+          at BMCE Capital, financial services consulting at Forvis Mazars, and portfolio management at
+          the McGill Applied Investments Fund.
+        </p>
+        <p>
+          I'm now combining that finance foundation with data analytics, currently as Solutions Architect
+          on a GenAI capstone with Scotiabank Global Banking and Markets.
+        </p>
+        <div class="stats">
+          <div class="stat"><b>$250K</b><span>Student-run portfolio managed</span></div>
+          <div class="stat"><b>18%</b><span>Portfolio return over six months</span></div>
+          <div class="stat"><b>85%+</b><span>Answer-accuracy target, GenAI agent</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- EXPERIENCE ---------- -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-title"><h2>Experience</h2></div>
+        <div class="timeline">
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <h3>Solutions Architect <span class="tag">MMA Capstone</span></h3>
+                <div class="org">Scotiabank &middot; Global Banking and Markets</div>
+              </div>
+              <div class="meta">Sept 2026 &ndash; Present<br />Montreal, Canada</div>
+            </div>
+            <ul>
+              <li>Translating Global Banking and Markets' pain points into the design of a GenAI knowledge solution</li>
+              <li>Implementing an end-to-end AI agent to train and assist employees on Salesforce, targeting 85%+ answer accuracy</li>
+              <li>Defining KPIs, the business value case and AI governance controls; KYC validation agent to follow</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <h3>M&amp;A Analyst Intern</h3>
+                <div class="org">BMCE Capital &middot; Investment banking arm of Bank of Africa</div>
+              </div>
+              <div class="meta">May 2025 &ndash; Aug 2025<br />Casablanca, Morocco</div>
+            </div>
+            <ul>
+              <li>Co-led the full valuation of a leading Moroccan soccer club, delivering an analysis later featured in the national press</li>
+              <li>Built DCF and trading comparables models to value cross-border M&amp;A transactions and infrastructure projects</li>
+              <li>Screened acquisition targets and benchmarked peer companies in Capital IQ to support live M&amp;A mandates</li>
+              <li>Converted financial forecasts into business plans, pitch books and investor presentations for corporate clients</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <h3>Portfolio Manager</h3>
+                <div class="org">McGill Applied Investments Fund</div>
+              </div>
+              <div class="meta">Jan 2025 &ndash; Dec 2025<br />Montreal, Canada</div>
+            </div>
+            <ul>
+              <li>Managed a $250,000 student-run portfolio, achieving an 18% return over six months</li>
+              <li>Pitched investment theses to the fund committee, shaping asset allocation and risk decisions</li>
+              <li>Conducted macroeconomic and sector analysis to identify opportunities across equity and fixed-income markets</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <div>
+                <h3>Financial Services Consulting Intern</h3>
+                <div class="org">Forvis Mazars</div>
+              </div>
+              <div class="meta">May 2024 &ndash; July 2024<br />Casablanca, Morocco</div>
+            </div>
+            <ul>
+              <li>Designed risk matrices mapping operational risks across core banking activities for major Moroccan banks</li>
+              <li>Formulated risk mitigation strategies and redesigned business process models to streamline client operations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- PROJECTS ---------- -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-title"><h2>Projects</h2></div>
         <div class="cards">
-          <!-- CARD 1 -->
           <div class="card">
-            <div class="card-text">
-              <h3>GenAI Knowledge Agent (Scotiabank GBM, MMA Capstone)</h3>
-              <p>Solutions Architect on an MMA capstone with Scotiabank Global Banking and Markets. Translating the division&#8217;s pain points into a GenAI knowledge solution: an AI agent that trains and assists employees on Salesforce, targeting 85%+ answer accuracy, with KPIs, business value and AI governance controls defined.</p>
-            </div>
+            <div class="kicker">Capstone &middot; Scotiabank GBM</div>
+            <h3>GenAI Knowledge Agent for Salesforce</h3>
+            <p>An AI agent grounded in internal documentation that trains and assists bankers using Salesforce, designed with KPIs and AI governance controls from day one.</p>
+            <div class="chips"><span class="chip">GenAI</span><span class="chip">RAG</span><span class="chip">Salesforce</span><span class="chip">AI governance</span></div>
           </div>
-
-          <!-- CARD 2 -->
           <div class="card">
-            <div class="card-text">
-              <h3>Student-Run Portfolio Management (McGill Applied Investments Fund)</h3>
-              <p>Managed a $250,000 student-run portfolio, achieving an 18% return over six months. Pitched investment theses to the fund committee using macroeconomic and sector analysis across equity and fixed-income markets.</p>
-            </div>
+            <div class="kicker">Deep learning &middot; In progress</div>
+            <h3>Financial News Sentiment &amp; Stock Returns</h3>
+            <p>Fine-tuning transformer models to classify the sentiment of financial news, and linking that sentiment to stock returns.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">Transformers</span><span class="chip">NLP</span><span class="chip">Markets</span></div>
           </div>
-
-          <!-- CARD 3 -->
           <div class="card">
-            <div class="card-text">
-              <h3>M&amp;A Valuation (BMCE Capital)</h3>
-              <p>Co-led the full valuation of a leading Moroccan soccer club, delivering an analysis later featured in the national press. Built DCF and trading comparables models for cross-border M&amp;A transactions and infrastructure projects.</p>
-            </div>
+            <div class="kicker">Machine learning</div>
+            <h3>Used-Car Price Prediction &amp; Causal Analysis</h3>
+            <p>End-to-end regression pipeline predicting resale prices, from EDA and feature engineering to modelling, extended with causal inference.</p>
+            <div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Regression</span><span class="chip">DoWhy</span></div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- CARD 4 -->
-          <div class="card">
-            <div class="card-text">
-              <h3>Banking Risk Framework (Forvis Mazars)</h3>
-              <p>Designed risk matrices mapping operational risks across core banking activities for major Moroccan banks, and redesigned business process models to streamline client operations.</p>
+    <!-- ---------- EDUCATION + SKILLS ---------- -->
+    <section id="education">
+      <div class="wrap">
+        <div class="section-title"><h2>Education</h2></div>
+        <div>
+          <div class="panel">
+            <div class="edu">
+              <h3>Master of Management in Analytics</h3>
+              <p>McGill University, Desautels Faculty of Management &middot; July 2026 &ndash; Present</p>
+            </div>
+            <div class="edu">
+              <h3>BA, Joint Honours in Economics &amp; Finance</h3>
+              <p>McGill University &middot; Sept 2022 &ndash; May 2026</p>
+            </div>
+            <div class="edu">
+              <h3>Tomlinson Engagement Award for Mentoring</h3>
+              <p>Foundations of Programming mentor, McGill University &middot; 2024 &ndash; 2025</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ============================================================
-       SIMPLE TAB SWITCHING SCRIPT
-       ============================================================ -->
-    <script>
-      function showTab(id) {
-        // hide all tab contents
-        document.querySelectorAll(".tab-content").forEach(function (el) {
-          el.classList.remove("active");
-        });
-        // remove active state from all buttons
-        document.querySelectorAll(".tab-button").forEach(function (btn) {
-          btn.classList.remove("active");
-        });
-        // show the selected tab + highlight the clicked button
-        document.getElementById(id).classList.add("active");
-        event.target.classList.add("active");
-      }
-    </script>
+    <!-- ---------- CONTACT ---------- -->
+    <footer id="contact">
+      <div class="wrap">
+        <h2>Let's connect</h2>
+        <p>Open to analyst opportunities in capital markets, investment banking and investment management.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:mohamed.guessous@mail.mcgill.ca">mohamed.guessous@mail.mcgill.ca</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/mohamed-guessous-6222aa2b3/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <small>&copy; 2026 Mohamed Guessous</small>
+      </div>
+    </footer>
   </body>
 </html>
